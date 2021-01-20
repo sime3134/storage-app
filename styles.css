@@ -7,6 +7,8 @@ body {
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
   font-family: 'Raleway', sans-serif;
   margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 h3 {
@@ -80,10 +82,10 @@ textarea:focus+.label-text-textarea,
 textarea:valid+.label-text-textarea,
 textarea:hover+.label-text-textarea  {
   color: white;
-  -moz-transform: translateY(-124px);
+  -moz-transform: translateY(-128px);
   -ms-transform: translateY(-124px);
   -webkit-transform: translateY(-124px);
-  transform: translateY(-124px);
+  transform: translateY(-136px);
 }
 
 .label-text-up {
@@ -124,6 +126,7 @@ textarea:hover+.label-text-textarea  {
 }
 
 .form textarea {
+  margin-top: 3px;
   resize: none;
   box-sizing: border-box;
   background-color: transparent;
@@ -161,6 +164,7 @@ textarea:hover+.label-text-textarea  {
   border-right: none;
   border-radius: 5px;
   font-size: 15px;
+  font-weight: bold;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   padding: 0.75rem 2rem;
   float: right;
