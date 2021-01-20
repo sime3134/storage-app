@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Webpage</title>
+  <meta name="description" content="Testing">
+  <meta name="author" content="Simon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1d27602c09.js" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="topnav" id="myTopnav">
+        <a href="javascript:void(0);" id="topNavText">Form</a>
+        <a href="javascript:void(0);" class="icon" id="toggleSideNav_button">
+          <div class="collapseContainer">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </a>
+        <a href="javascript:void(0);" class="icon" id="noti_icon">
+          <i class="fa fa-bell"></i>
+        </a>
+      </div>
+
+      <div id="sideNav" class="sidenav">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Admin</a>
+      </div>
+
+      <div class="noti_dropdown">
+        <h4>Notifications</h4>
+        <hr>
+      </div>
+    </nav>
+  </header>
+  
+  <h1 class="top_title">Please fill in the form below.</h1>
+
+  <form class="form" method="POST" action="#">
+    <label>
+      <input id="nameField" name="name" type="text" required pattern=".*\S.*">
+      <div class="label-text">NAME</div>
+    </label>
+
+    <label>
+      <input id="emailField" name="email" type="text" required pattern=".*\S.*">
+      <div class="label-text">EMAIL</div>
+    </label>
+
+    <label>
+      <select name="gender" id="gender" required>
+        <option disabled selected value="0"></option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+        <option value="3">Other</option>
+      </select>
+      <div id="gender-label" class="label-text">GENDER</div>
+    </label>
+
+    <label>
+      <select name="occup" id="occup" required>
+        <option disabled selected value="0"></option>
+        <option value="1">Working</option>
+        <option value="2">Studying</option>
+        <option value="3">Others</option>
+      </select>
+      <div id="occup-label" class="label-text">OCCUPATION</div>
+    </label>
+
+    <label>
+      <textarea id="prField" name="pres" rows="5" required></textarea>
+      <div class="label-text-textarea">PRESENTATION</div>
+    </label>
+    <button id="submitButton" type="submit" value="Submit">Submit</button>
+  </form>
+</body>
+
+</html>

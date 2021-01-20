@@ -1,0 +1,223 @@
+body {
+  /* fallback for old browsers */
+  background: #0F2027;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.white {
+  color: white;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  padding-top: 20px;
+  padding-bottom: 35px;
+  width: 90%;
+  margin: auto;
+}
+
+.form label {
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+label .label-text {
+  color: white;
+  padding-top: 15px;
+  font-weight: bold;
+  cursor: text;
+  -moz-transform: translateY(-42px);
+  -ms-transform: translateY(-42px);
+  -webkit-transform: translateY(-42px);
+  transform: translateY(-42px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+label .label-text-textarea {
+  color: white;
+  padding-top: 15px;
+  font-weight: bold;
+  cursor: text;
+  -moz-transform: translateY(-42px);
+  -ms-transform: translateY(-42px);
+  -webkit-transform: translateY(-42px);
+  transform: translateY(-42px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+input:focus+.label-text,
+input:valid+.label-text {
+  color: white;
+  -moz-transform: translateY(-72px);
+  -ms-transform: translateY(-72px);
+  -webkit-transform: translateY(-72px);
+  transform: translateY(-72px);
+}
+
+select:focus+.label-text {
+  color: white;
+  -moz-transform: translateY(-66px);
+  -ms-transform: translateY(-66px);
+  -webkit-transform: translateY(-66px);
+  transform: translateY(-66px);
+}
+
+textarea:focus+.label-text-textarea,
+textarea:valid+.label-text-textarea {
+  color: white;
+  -moz-transform: translateY(-124px);
+  -ms-transform: translateY(-124px);
+  -webkit-transform: translateY(-124px);
+  transform: translateY(-124px);
+}
+
+.label-text-up {
+  color: white;
+  padding-top: 15px;
+  font-weight: bold;
+  cursor: text;
+  -moz-transform: translateY(-66px);
+  -ms-transform: translateY(-66px);
+  -webkit-transform: translateY(-66px);
+  transform: translateY(-66px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.form input,
+.form select {
+  background-color: transparent;
+  height: 30px;
+  border-color: white;
+  border-bottom-width: 2px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 5px;
+  width: 80%;
+  text-align: justify;
+  /* For Edge */
+  text-align-last: center;
+  color: white;
+}
+
+.form option{
+  color: black;
+}
+
+.form textarea {
+  resize: none;
+  background-color: transparent;
+  border-color: white;
+  border-bottom-width: 2px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 5px;
+  width: 80%;
+  text-align: justify;
+  /* For Edge */
+  text-align-last: center;
+  color: white;
+}
+
+#submitButton {
+  background-color: ghostwhite;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 125px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 15px;
+  align-self: flex-end;
+  margin-right: 35px;
+}
+
+.top_title {
+  text-align: center;
+  color: white;
+  font-size: 8vw;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+.noti_dropdown {
+  position: absolute;
+  background-color: ghostwhite;
+  z-index: 1;
+  height: 1px;
+  width: 1px;
+  max-width: 400px;
+  right: 10px;
+  top: 70px;
+  border-radius: 25px;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.noti_dropdown h4 {
+  text-align: center;
+}
+
+.noti_dropdown.show {
+  opacity: 1;
+  height: 85%;
+  width: 95%;
+}
+
+#unit_div {
+  box-sizing: border-box;
+  margin: auto;
+  background-color: ghostwhite;
+  border-radius: 25px;
+  width: 340px;
+  height: 240px;
+  padding: 20px;
+}
+
+#unit_div_title {
+  font-size: 25px;
+}
+
+.right_value {
+  float: right;
+}
+
+.unit_list {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.unit_list li {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+.unit_list li:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
