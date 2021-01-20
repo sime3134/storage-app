@@ -22,20 +22,16 @@ h4 {
 }
 
 .form {
-  display: flex;
-  flex-flow: column wrap;
   padding-top: 20px;
   padding-bottom: 35px;
-  width: 90%;
+  width: 40%;
+  min-width: 350px;
   margin: auto;
-}
-
-.form label {
   text-align: center;
   letter-spacing: 2px;
 }
 
-label .label-text {
+.label-text {
   color: white;
   padding-top: 15px;
   font-weight: bold;
@@ -48,7 +44,7 @@ label .label-text {
   pointer-events: none;
 }
 
-label .label-text-textarea {
+.label-text-textarea {
   color: white;
   padding-top: 15px;
   font-weight: bold;
@@ -62,7 +58,8 @@ label .label-text-textarea {
 }
 
 input:focus+.label-text,
-input:valid+.label-text {
+input:valid+.label-text,
+input:hover+.label-text {
   color: white;
   -moz-transform: translateY(-72px);
   -ms-transform: translateY(-72px);
@@ -70,7 +67,8 @@ input:valid+.label-text {
   transform: translateY(-72px);
 }
 
-select:focus+.label-text {
+select:focus+.label-text,
+select:hover+.label-text  {
   color: white;
   -moz-transform: translateY(-66px);
   -ms-transform: translateY(-66px);
@@ -79,7 +77,8 @@ select:focus+.label-text {
 }
 
 textarea:focus+.label-text-textarea,
-textarea:valid+.label-text-textarea {
+textarea:valid+.label-text-textarea,
+textarea:hover+.label-text-textarea  {
   color: white;
   -moz-transform: translateY(-124px);
   -ms-transform: translateY(-124px);
@@ -105,49 +104,82 @@ textarea:valid+.label-text-textarea {
   background-color: transparent;
   height: 30px;
   border-color: white;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
   text-align: justify;
   /* For Edge */
   text-align-last: center;
   color: white;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  outline-style: none;
 }
 
-.form option{
+.form option {
   color: black;
 }
 
 .form textarea {
   resize: none;
+  box-sizing: border-box;
   background-color: transparent;
   border-color: white;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
+  min-width: 250px;
   text-align: justify;
   /* For Edge */
   text-align-last: center;
   color: white;
+  outline-style: none;
+}
+
+.form input:focus,
+.form input:hover,
+.form select:focus,
+.form select:hover,
+.form textarea:focus,
+.form textarea:hover {
+  border-bottom: 3px solid white;
+  border-bottom-width: 3px;
 }
 
 #submitButton {
+  position: relative;
+  overflow: hidden;
   background-color: ghostwhite;
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 125px;
-  height: 35px;
   border-radius: 5px;
   font-size: 15px;
-  align-self: flex-end;
-  margin-right: 35px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 2rem;
+  float: right;
+  cursor: pointer;
+}
+
+span.ripple {
+  position: absolute; /* The absolute position we mentioned earlier */
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: black;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 .top_title {

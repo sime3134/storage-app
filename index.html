@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Webpage</title>
+  <title>Form</title>
   <meta name="description" content="Testing">
   <meta name="author" content="Simon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,17 +50,17 @@
   <h1 class="top_title">Please fill in the form below.</h1>
 
   <form class="form" method="POST" action="#">
-    <label>
+    <div>
       <input id="nameField" name="name" type="text" required pattern=".*\S.*">
       <div class="label-text">NAME</div>
-    </label>
+    </div>
 
-    <label>
+    <div>
       <input id="emailField" name="email" type="text" required pattern=".*\S.*">
       <div class="label-text">EMAIL</div>
-    </label>
+    </div>
 
-    <label>
+    <div>
       <select name="gender" id="gender" required>
         <option disabled selected value="0"></option>
         <option value="1">Male</option>
@@ -68,9 +68,9 @@
         <option value="3">Other</option>
       </select>
       <div id="gender-label" class="label-text">GENDER</div>
-    </label>
+    </div>
 
-    <label>
+    <div>
       <select name="occup" id="occup" required>
         <option disabled selected value="0"></option>
         <option value="1">Working</option>
@@ -78,12 +78,12 @@
         <option value="3">Others</option>
       </select>
       <div id="occup-label" class="label-text">OCCUPATION</div>
-    </label>
+    </div>
 
-    <label>
+    <div>
       <textarea id="prField" name="pres" rows="5" required></textarea>
       <div class="label-text-textarea">PRESENTATION</div>
-    </label>
+    </div>
     <button id="submitButton" type="submit" value="Submit">Submit</button>
   </form>
 </body>
