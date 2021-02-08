@@ -1,0 +1,41 @@
+<%- include ("partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l6">
+            <h1>Welcome <%= users[0].firstName %></h1>
+
+            <p class="flow-text">
+                You currently have 5m² in storage in Malmö.
+                <br>
+                <br>
+                This is the modern storage solution with on-demand pickup and delivery of your items.
+                We use labels with QR-codes to register all your items giving you more options than a regular
+                storage.
+            </p>
+        </div>
+        <div class="col s12 m12 l6">
+            <h4 class="margin-top60">Your items by category</h4>
+            <div class="collection">
+                <a href="#" class="collection-item">Furniture (1)</a>
+                <a href="#" class="collection-item">Memories (2)</a>
+                <a href="#" class="collection-item">Car parts (1)</a>
+                <a href="#" class="collection-item">No category (5) </a>
+            </div>
+            <p>Or see all your items <a href="/mystorage">here</a></p>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+</div>
+
+<%- include ("partials/footer") %>

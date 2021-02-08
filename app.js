@@ -1,66 +1,69 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-  //NOTIFICATION DROPDOWN
-  document.querySelector('#noti_icon').addEventListener('click', () => {
-    if (document.getElementById("sideNav").offsetWidth != "0") {
-      document.getElementById("sideNav").style.width = "0";
-      document.body.style.backgroundColor = "rgba(92, 219, 149, 1)";
-      const collapseBars = document.querySelector('.collapseContainer');
-      collapseBars.classList.toggle('change');
-    }
-    const noti_dropdown = document.querySelector('.noti_dropdown');
-    noti_dropdown.classList.toggle('show');
-  });
+const express = require('express'),
+    app = express(),
+    http = require('http').createServer(app),
+    mongoose = require("mongoose"),
+    passport = require("passport"),
+    LocalStrategy = require("passport-local"),
+    passportLocalMongoose = require('passport-local-mongoose'),
+    methodOverride = require('method-override'),
+    expressSanitizer = require("express-sanitizer"),
+    bodyParser = require("body-parser"),
+    User = require("./models/user"),
+    Item = require("./models/item");
 
-  //SIDENAV
-  document.querySelector('#toggleSideNav_button').addEventListener('click', () => {
-    if (document.getElementById("sideNav").offsetWidth == "0") {
-      const collapseBars = document.querySelector('.collapseContainer');
-      collapseBars.classList.toggle('change');
-      const noti_dropdown = document.querySelector('.noti_dropdown');
-      noti_dropdown.classList.remove('show');
-      document.getElementById("sideNav").style.width = "250px";
-      document.body.style.backgroundColor = "rgba(92, 219, 149, 0.4)";
-    } else if (document.getElementById("sideNav").offsetWidth == "250") {
-      const collapseBars = document.querySelector('.collapseContainer');
-      collapseBars.classList.toggle('change');
-      document.getElementById("sideNav").style.width = "0";
-      document.body.style.backgroundColor = "rgba(92, 219, 149, 1)";
-    }
-  });
-
-  //FORM LABEL - SELECT TAG
-  let occup = document.querySelector('#occup');
-  occup.addEventListener('change', () => {
-      document.querySelector('#occup-label').classList.replace("label-text", "label-text-up")
-  });
-
-  let gender = document.querySelector('#gender');
-  gender.addEventListener('change', () => {
-      document.querySelector('#gender-label').classList.replace("label-text", "label-text-up")
-  });
-
-  //RIPPLE EFFECT
-  let rippleButton = document.querySelector('#submitButton');
-  rippleButton.addEventListener('click', createRipple);
+//APP CONFIG
+mongoose.set('useFindAndModify', false);
+var url = "mongodb+srv://dbadmin:plainsight246@cluster0.039bz.mongodb.net/storage_data?retryWrites=true&w=majority";
+mongoose.connect(url, {
+    poolSize: 10,
+    bufferMaxEntries: 0,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
 });
 
-function createRipple(event) {
-  const button = event.currentTarget;
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(expressSanitizer());
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(methodOverride('_method'));
 
-  const circle = document.createElement("span");
-  const diameter = Math.max(button.clientWidth, button.clientHeight);
-  const radius = diameter / 2;
+//PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-  circle.style.width = circle.style.height = `${diameter}px`;
-  circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-  circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-  circle.classList.add("ripple");
+app.get('/', (req, res) => {
+    User.find({}, (err, allUsers) => {
+        res.render('index', {
+            users: allUsers
+        });
+    });
+});
 
-  const ripple = button.getElementsByClassName("ripple")[0];
+app.get('/newitem', (req, res) => {
+    res.render('newitem');
+});
 
-  if (ripple) {
-    ripple.remove();
-  }
+app.get('/mystorage', (req, res) => {
+    Item.find({}, (err, allItems) => {
+        res.render('mystorage', {
+            items: allItems
+        });
+    });
+});
 
-  button.appendChild(circle);
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 5501;
 }
+
+http.listen(port, function () {
+    console.log("App has started");
+});
+
+module.exports = app;

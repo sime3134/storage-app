@@ -1,0 +1,93 @@
+<%- include ("partials/header") %>
+
+<div class="container">
+  <a href="/mystorage" class="waves-effect waves-light btn-small margin-top20"><i
+      class="material-icons left">arrow_back</i>Back to my storage</a>
+  <div class="tab">
+    <h2 id="stepTitle">| Step 1.</h2>
+    <p class="flow-text">First add all the items you want to put in your storage.</p>
+    <a class="modal-trigger" href="#modal1">Why do I need to do this?</a>
+
+      <form id="submitItemsForm" action="/" method="POST">
+        <div class="margin-top20" class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <div class="err-msg right"></div>
+                <input name="item[title]" placeholder="Car tires..." id="item_title" type="text" required>
+                <label for="item_title">Title of item<span class="required">*</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea name="item[desc]" placeholder="4 x winter tires..." id="item_desc"
+                  class="materialize-textarea"></textarea>
+                <label for="item_desc">Description(optional)</label>
+              </div>
+            </div>
+            <a id="addItemButton" class="btn waves-effect waves-light right">Add
+              <i class="material-icons right">add</i>
+            </a>
+          </div>
+        </div>
+      </form>
+
+    <ul class="margin-top80 hidden" id="newItemList">
+    </ul>
+
+  </div>
+
+  <div class="tab">
+    <h2 id="stepTitle">| Step 2.</h2>
+    <p class="flow-text">Will you need pick-up or will you deliver your items yourself?</p>
+    <p>
+      <label>
+        <input name="group1" type="radio" checked />
+        <span>Please pick up my items for me</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="group1" type="radio" />
+        <span>I will deliver myself</span>
+      </label>
+    </p>
+    <p>
+  </div>
+
+  <div class="tab">
+    <h2 id="stepTitle">| Step 3.</h2>
+    <p class="flow-text">Choose a date and time</p>
+  </div>
+  </form>
+
+  <div class="stepContainer margin-top80">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+
+  <div class="margin-top20">
+    <button id="nextButton" class="btn waves-effect waves-light right">Next
+      <i class="material-icons right">arrow_forward</i>
+    </button>
+    <button id="prevButton" class="btn waves-effect waves-light right margin-right10">Previous
+      <i class="material-icons left">arrow_back</i>
+    </button>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h2>Why do I have to add this information?</h2>
+      <p class="flow-text">All items get their own ID-tag. When you ask for your items to be picked up or if you
+        deliver
+        them to our storage, QR-codes with the ID-tags are stuck to your items.
+        This way you can easily manage your storage from anywhere without sacrificing privacy.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn">Sounds good!</a>
+    </div>
+  </div>
+</div>
+<%- include ("partials/footer") %>
